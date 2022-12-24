@@ -122,11 +122,14 @@ class SRT:
             # Error handling in case that click does not work
             try:
                 self.driver.find_element(By.CSS_SELECTOR,
-                                         f"#result-form > fieldset > div.tbl_wrap.th_thead > table > tbody > tr:nth-child({i}) > td:nth-child(7) > a").click()
+                                         f"#result-form > fieldset > div.tbl_wrap.th_thead > table > tbody > tr:nth-child({i}) > td:nth-child(6) > a").click()
+                #self.driver.implicitly_wait(1)
+                self.driver.find_element(By.XPATH, "/html/body/div[2]/div/div[6]/button[1]").click()
+                #time.sleep(1)
             except ElementClickInterceptedException as err:
                 print(err)
                 self.driver.find_element(By.CSS_SELECTOR,
-                                         f"#result-form > fieldset > div.tbl_wrap.th_thead > table > tbody > tr:nth-child({i}) > td:nth-child(7) > a").send_keys(
+                                         f"#result-form > fieldset > div.tbl_wrap.th_thead > table > tbody > tr:nth-child({i}) > td:nth-child(6) > a").send_keys(
                     Keys.ENTER)
             finally:
                 self.driver.implicitly_wait(3)
