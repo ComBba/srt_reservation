@@ -16,6 +16,8 @@ from srt_reservation.validation import station_list
 chromedriver_path = r'C:\workspace\chromedriver.exe'
 
 class SRT:
+    """python quickstart.py --user 1234567890 --psw 000000 --dpt 동탄 --arr 동대구 --dt 20220117 --tm 08"""
+    
     def __init__(self, dpt_stn, arr_stn, dpt_dt, dpt_tm, num_trains_to_check=2, want_reserve=False):
         """
         :param dpt_stn: SRT 출발역
@@ -164,7 +166,7 @@ class SRT:
         while True:
             for i in range(1, self.num_trains_to_check+1):
                 try:
-                    standard_seat = self.driver.find_element(By.CSS_SELECTOR, f"#result-form > fieldset > div.tbl_wrap.th_thead > table > tbody > tr:nth-child({i}) > td:nth-child(7)").text
+                    standard_seat = self.driver.find_element(By.CSS_SELECTOR, f"#result-form > fieldset > div.tbl_wrap.th_thead > table > tbody > tr:nth-child({i}) > td:nth-child(6)").text
                     reservation = self.driver.find_element(By.CSS_SELECTOR, f"#result-form > fieldset > div.tbl_wrap.th_thead > table > tbody > tr:nth-child({i}) > td:nth-child(8)").text
                 except StaleElementReferenceException:
                     standard_seat = "매진"
