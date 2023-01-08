@@ -125,7 +125,7 @@ class SRT:
             try:
                 self.driver.find_element(By.CSS_SELECTOR,
                                          f"#result-form > fieldset > div.tbl_wrap.th_thead > table > tbody > tr:nth-child({i}) > td:nth-child(6) > a").click()
-                #self.driver.implicitly_wait(1)
+                #self.driver.implicitly_wait(1) //*[@id="result-form"]/fieldset/div[6]/table/tbody/tr[7]/td[6]
                 self.driver.find_element(By.XPATH, "/html/body/div[2]/div/div[6]/button[1]").click()
                 #time.sleep(1)
             except ElementClickInterceptedException as err:
@@ -158,7 +158,7 @@ class SRT:
         if "신청하기" in reservation:
             print("예약 대기 완료")
             self.driver.find_element(By.CSS_SELECTOR,
-                                     f"#result-form > fieldset > div.tbl_wrap.th_thead > table > tbody > tr:nth-child({i}) > td:nth-child(8) > a").click()
+                                     f"#result-form > fieldset > div.tbl_wrap.th_thead > table > tbody > tr:nth-child({i}) > td:nth-child(6) > a").click()
             self.is_booked = True
             return self.is_booked
 
@@ -167,7 +167,7 @@ class SRT:
             for i in range(1, self.num_trains_to_check+1):
                 try:
                     standard_seat = self.driver.find_element(By.CSS_SELECTOR, f"#result-form > fieldset > div.tbl_wrap.th_thead > table > tbody > tr:nth-child({i}) > td:nth-child(6)").text
-                    reservation = self.driver.find_element(By.CSS_SELECTOR, f"#result-form > fieldset > div.tbl_wrap.th_thead > table > tbody > tr:nth-child({i}) > td:nth-child(8)").text
+                    reservation = self.driver.find_element(By.CSS_SELECTOR, f"#result-form > fieldset > div.tbl_wrap.th_thead > table > tbody > tr:nth-child({i}) > td:nth-child(6)").text
                 except StaleElementReferenceException:
                     standard_seat = "매진"
                     reservation = "매진"
