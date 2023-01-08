@@ -7,7 +7,7 @@
 
 ## 다운
 ```cmd
-git clone https://github.com/kminito/srt_reservation.git
+git clone https://github.com/ComBba/srt_reservation.git
 ```
   
 ## 필요
@@ -35,11 +35,11 @@ pip install -r requirements.txt
 
 회원번호 1234567890  
 비밀번호 000000  
-동탄 -> 동대구, 2022년 01월 17일 오전 8시 이후 기차  
-검색 결과 중 상위 2개가 예약 가능할 경우 예약
+평택지제 -> 광주송정, 2023년 01월 08일 16시 이후 기차 (2시간단위로 설정가능) 
+검색 결과 중 상위 1개가 예약 가능할 경우 예약
 
 ```cmd
-python quickstart.py --user 1234567890 --psw 000000 --dpt 동탄 --arr 동대구 --dt 20220117 --tm 08
+python quickstart.py --user 1234567890 --psw 000000 --dpt 평택지제 --arr 광주송정 --dt 20230108 --tm 16 --num 1
 ```
 
 **Optional**  
